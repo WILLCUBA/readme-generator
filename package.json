@@ -1,14 +1,26 @@
 {
-  "name": "static-site",
+  "name": "readme-generator",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Wilian Pinero Gonzalez",
+  "license": "MIT",
   "dependencies": {
-    "inquirer": "^6.3.1"
-  }
+    "inquirer": "^8.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WILLCUBA/readme-generator.git"
+  },
+  "keywords": [
+    "generate",
+    "readem"
+  ],
+  "bugs": {
+    "url": "https://github.com/WILLCUBA/readme-generator/issues"
+  },
+  "homepage": "https://github.com/WILLCUBA/readme-generator#readme",
+  "description": ""
 }
