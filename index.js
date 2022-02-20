@@ -6,21 +6,30 @@ const generateMarkdown = require('./utils/generateMarkdown')
 const questions = 
     {
     title:'What is the title of the project',
-    description:`Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+    
+    description:`
+    Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
     - What was your motivation?
     - Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
     - What problem does it solve?
     - What did you learn?
     `,
+    
     installInstructions:`
     What are the steps required to install your project? 
     Provide a step-by-step description of how to get the development environment running.
     `,
+    
     usageInfo:'Provide instructions and examples for use.',
+    
     contributionGuideline:'Provide guidelines for how to contribute',
+    
     testInstructions:'Write tests for your application. Then provide examples on how to run them here.',
+    
     license:'What type of license does your project have',
+    
     gitHubUserName:'Provide your github user name',
+    
     email:'Provide your email'
 };
 
@@ -39,6 +48,37 @@ const promptUser = () => {
                 return false;
               }
             }
+        },
+        {
+          type: 'input',
+          name: 'description',
+          message: questions.description
+        },
+        {
+          type: 'input',
+          name: 'installInstructions',
+          message: questions.installInstructions
+        },
+        {
+          type:'input',
+          name:'usageInfo',
+          message:questions.usageInfo
+        },
+        {
+          type:'input',
+          name:'contributionGuideline',
+          message:questions.contributionGuideline
+        },
+        {
+          type:'input',
+          name: 'testInstructions',
+          message: questions.testInstructions
+        },
+        {
+          type:'list',
+          name:'license',
+          message:questions.license,
+          choices:["MIT","Hippocratic 2.1","Hippocratic 3.0","IPL 1.0","ISC","MPL 2.0"]
         }
     ])
 }
