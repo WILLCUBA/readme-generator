@@ -3,9 +3,8 @@
 const renderLicenseBadge = (license) => {
     if (license) {
         return `![License: ${license}](https://img.shields.io/badge/License-${license.replace(' ','_')}-yellow.svg)`
-    } else {
-        return ""
     }
+    return ""
 }
 
 
@@ -13,16 +12,24 @@ const renderLicenseBadge = (license) => {
 // // If there is no license, return an empty string
 const renderLicenseLink = (license) => {
     if (license) {
-        return `(https://opensource.org/licenses/ISC)`
+        return `[Click here for more information](https://opensource.org/licenses/${license.replace(' ','-')})`
     }
+    return ""
 }
 
-// // TODO: Create a function that returns the license section of README
-// // If there is no license, return an empty string
-// function renderLicenseSection(license) {}
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+const renderLicenseSection = (license) =>
+{
+    if (license) {
+        return `This project is cover under the license type ${license}
+        `
+    }
+    return ""
+}
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+const generateMarkdown = (data) => {
     return `
 # ${data.title}
 
@@ -39,7 +46,7 @@ ${data.description}
 - [Contribution](#contribution)
 - [Test](#test)
 - [License](#license)
-
+- [Questions](#questions)
 ## Installation
 
 ${data.installInstructions}
@@ -56,6 +63,16 @@ ${data.contributionGuideline}
 
 ${data.testInstructions}
 
+## License
+
+${renderLicenseSection(data.license)}
+${renderLicenseLink(data.license)}
+
+## Questions
+
+[GitHub Repo](https://github.com/${data.gitHubUserName})
+
+[email](${data.email})
 `;
 }
 

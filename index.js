@@ -78,7 +78,17 @@ const promptUser = () => {
           type:'list',
           name:'license',
           message:questions.license,
-          choices:["MIT","Hippocratic 2.1","Hippocratic 3.0","IPL 1.0","ISC","MPL 2.0"]
+          choices:["MIT","IPL 1.0","ISC","MPL 2.0"]
+        },
+        {
+          type:'input',
+          name:'gitHubUserName',
+          message:questions.gitHubUserName
+        },
+        {
+          type:'input',
+          name:'email',
+          message:questions.email
         }
     ])
 }
@@ -100,15 +110,16 @@ const writeToFile = (fileName, data) => {
   };
 
 // TODO: Create a function to initialize app
-function init() {}
+init = () => {
+  return promptUser()
+  .then(userData => {
+      return generateMarkdown(userData)
+  })
+  .then(markdown => {
+      return writeToFile('./dist/readme.md',markdown)
+  })
+}
 
 // Function call to initialize app
 init();
 
-promptUser()
-.then(userData => {
-    return generateMarkdown(userData)
-})
-.then(markdown => {
-    return writeToFile('./dist/readme.md',markdown)
-})
