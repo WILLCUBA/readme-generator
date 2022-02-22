@@ -72,7 +72,7 @@ ${renderLicenseLink(data.license)}
 
 [GitHub Repo](https://github.com/${data.gitHubUserName})
 
-[email](${data.email})
+email: ${data.email}
 `;
 }
 
